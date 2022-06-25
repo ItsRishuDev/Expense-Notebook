@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+Update
+{% endblock %}
+
+{% block body %}
+<div class="container my-4 border border-info rounded p-3">
+    <h5>Update Expenditure</h5><hr>
+    <form action="/update/{{expense.id}}" method="POST" class="row gy-2 gx-3 align-items-center">
+        <div class="col-auto">
+          <label class="visually-hidden" for="autoSizingInput">Content</label>
+          <input type="text" name="content" class="form-control" id="autoSizingInput" value="{{expense.content}}" placeholder="{{expense.content}}">
+        </div>
+        <div class="col-auto">
+          <label class="visually-hidden" for="autoSizingInputGroup">Amount</label>
+          <div class="input-group">
+            <div class="input-group-text">₹</div>
+            <input type="number" name="amount" class="form-control" id="autoSizingInputGroup" value="{{expense.amount}}" placeholder="{{expense.amount}}">
+          </div>
+        </div>
+        <div class="col-auto">
+          <label class="visually-hidden" for="autoSizingSelect">Type</label>
+          <select class="form-select" name="type" id="autoSizingSelect">
+            <option selected value="{{expense.amount_type}}">{{expense.amount_type}}</option>
+            <option value="Credit">Credit</option>
+            <option value="Expense">Expense</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+</div>
+{% endblock %}
